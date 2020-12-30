@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILE_DIR=$2
+SETTINGS_DIR=$(pwd)
 CONFIG_DIR=${XDG_CONFIG_HOME}
 
 function testing () {
@@ -12,38 +12,46 @@ function testing () {
 }
 
 function mkdir_if_not_exist() {
+	echo "**********Func Start************"
+
+	echo "func name=mkdir_if_not_exist"
 	dir=$1
 	printf "dir=%s\n" ${dir}
 	if test "${dir}" ;then
-		echo "Directory ${dir} already exists"
+		echo "**********Func End************"
 		return
 	fi
 	mkdir ${dir}
 	echo "Directory ${dir} created"
-
+	echo "**********Func End************"
 }
 
-
 function run() {
-	printf "DOTFILE_DIR=%s\n" $DOTFILE_DIR
-	if [ -z ${DOTFILE_DIR} ]; then 
-		echo "Please provide the path to the dotfile directory"
-		exit 0
+	echo "===============Start Running======================="
+	printf "SETTINGS_DIR=%s\n" $SETTINGS_DIR
+	if [ -z ${SETTINGS_DIR} ]; then 
+		echo "Please provide the path to the settings directory"
+		echo "===============Stop Running======================="
+		return 
 	elif [ -z ${CONFIG_DIR} ]; then
 		echo "Please provide XDG_CONFIG_HOME environment variable"
+		echo "===============Stop Running======================="
+	 	return 	
 	fi
 	
-	cd ${DOTFILE_DIR}
+	cd ${SETTINGS_DIR}
+  	mkdir_if_not_exist ${CONFIG_DIR} && ln -snfv ${SETTINGS_DIR}/nvim ${CONFIG_DIR}/nvim
 	
-	for f in ??*; do
-  	[[ ${f} = ".git" ]] && continue
+	cd dots
+	for f in .??*; do
+ 	[[ ${f} = ".git" ]] && continue
  	[[ ${f} = ".gitignore" ]] && continue
-  	[[ ${f} = "init.vim" ]] && mkdir_if_not_exist ${CONFIG_DIR}/nvim && ln -snfv ${DOTFILE_DIR}/${f} ${CONFIG_DIR}/nvim/${f}
+	ln -snfv ${SETTINGS_DIR}/dots/${f} ${HOME}/${f}
 	done
 	
 	echo "Done setting links"
+	echo "===============Stop Running======================="
 }
-
 
 [[ -z $1 ]] && cat <<EOF
 Please provide one of the subcommands below.
