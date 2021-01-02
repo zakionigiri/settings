@@ -8,6 +8,10 @@ set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
 inoremap <silent> jj <ESC>
 
+nnoremap <C-t> :tabnew<cr> 
+nnoremap <C-L> :tabnext<cr>
+nnoremap <C-J> :tabprevious<cr> 
+
 let g:goimports = 1
 
 if &compatible

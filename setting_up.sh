@@ -3,6 +3,14 @@
 SETTINGS_DIR=$(pwd)
 CONFIG_DIR=${XDG_CONFIG_HOME}
 
+function func_start() {
+  echo "**********Func Start($1)************"
+}
+
+function func_end() {
+  echo "**********Func End($1)************"
+}
+
 function testing () {
 	local args=($@)
 	local func=${args[1]}
@@ -12,18 +20,27 @@ function testing () {
 }
 
 function mkdir_if_not_exist() {
-	echo "**********Func Start************"
-
-	echo "func name=mkdir_if_not_exist"
+  func_start "mkdir_if_not_exist"
 	dir=$1
 	printf "dir=%s\n" ${dir}
 	if test "${dir}" ;then
-		echo "**********Func End************"
+    func_end
 		return
 	fi
 	mkdir ${dir}
 	echo "Directory ${dir} created"
-	echo "**********Func End************"
+	fund_end
+}
+
+function install_zsh_template() {
+  func_start "install_zsh_template"
+
+  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+  echo "Installing the theme (powelevel10k)"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+  func_end
 }
 
 function run() {
@@ -38,6 +55,11 @@ function run() {
 		echo "===============Stop Running======================="
 	 	return 	
 	fi
+
+  case ${SHELL} in
+    *zsh) echo "Your default shell is zsh. setting up..." && install_zsh_template ;;
+    *) echo "Your default shell is not zsh. skipping. (as this script only contains configurations for zsh)" ;;
+  esac
 	
 	cd ${SETTINGS_DIR}
   	mkdir_if_not_exist ${CONFIG_DIR} && ln -snfv ${SETTINGS_DIR}/nvim ${CONFIG_DIR}/nvim
@@ -47,6 +69,7 @@ function run() {
  	[[ ${f} = ".git" ]] && continue
  	[[ ${f} = ".gitignore" ]] && continue
 	ln -snfv ${SETTINGS_DIR}/dots/${f} ${HOME}/${f}
+	source ${f} 2>/dev/null
 	done
 	
 	echo "Done setting links"
@@ -55,7 +78,7 @@ function run() {
 
 [[ -z $1 ]] && cat <<EOF
 Please provide one of the subcommands below.
-	run <dotfile_dir>: run the script. dotfile_dir should be an absolute path.
+	run : run the script. 
 	test <func_name> <...args>: unit test a function.
 EOF
 
