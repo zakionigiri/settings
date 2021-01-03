@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/Users/atsushi/Desktop/Projects/settings'
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/atsushi/go/src/chain_proto/gateway'
+let g:netrw_dirhist_5='/Users/atsushi/go/src/chain_proto/gateway/gw'
+let g:netrw_dirhist_4='/Users/atsushi/go/src/chain_proto/gateway'
+let g:netrw_dirhist_3='/Users/atsushi/go/src/chain_proto/gateway/proto'
+let g:netrw_dirhist_2='/Users/atsushi/go/src/chain_proto/gateway'
+let g:netrw_dirhist_1='/Users/atsushi/go/src/chain_proto/gateway/gw'
+let g:netrw_dirhist_0='/Users/atsushi/go/src/chain_proto/gateway'
+let g:netrw_dirhist_9='/Users/atsushi/go/src/chain_proto/config'
+let g:netrw_dirhist_8='/Users/atsushi/go/src/chain_proto/blockchain'
+let g:netrw_dirhist_7='/Users/atsushi/go/src/chain_proto/db/repository'

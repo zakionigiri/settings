@@ -1,18 +1,35 @@
-set number             "行番号を表示
-set autoindent         "改行時に自動でインデントする
-set tabstop=2          "タブを何文字の空白に変換するか
-set shiftwidth=2       "自動インデント時に入力する空白の数
-set expandtab          "タブ入力を空白に変換
-set splitright         "画面を縦分割する際に右に開く
-set clipboard=unnamed  "yank した文字列をクリップボードにコピー
-set hls                "検索した文字をハイライトする
+set number            
+set autoindent         
+set smartindent         
+set autoread 
+set cursorline 
+set relativenumber 
+set tabstop=2         
+set shiftwidth=2     
+set expandtab       
+set splitright     
+set clipboard=unnamed
+set hls             
+set nowrap
+set noswapfile
+set noerrorbells                 
+set novisualbell                
+set incsearch
+set hlsearch
+
+syntax enable
+
 inoremap <silent> jj <ESC>
 
 nnoremap <C-t> :tabnew<cr> 
 nnoremap <C-L> :tabnext<cr>
 nnoremap <C-J> :tabprevious<cr> 
 
-let g:goimports = 1
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 if &compatible
   set nocompatible
@@ -32,6 +49,52 @@ if dein#load_state('~/.cache/dein')
   call dein#end()
   call dein#save_state()
 endif
+
+"----------------------------------------------
+" Colors
+"----------------------------------------------
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198s
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+set termguicolors
+set background=dark
+
+" Material colorscheme settings
+let g:material_theme_style = 'darker-community'
+
+" Ayu colorscheme settings
+let ayucolor = 'dark'
+
+" One colorscheme settings
+let g:one_allow_italics = 1
+
+colorscheme ayu
+
+" Toggle background with <leader>bg
+map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
+
+"----------------------------------------------
+" Golang Configurations
+"----------------------------------------------
+"
+let g:go_fmt_command = "goimports"
+let g:goimports = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+au filetype go inoremap <buffer> . .<C-x><C-o>
+
 filetype plugin indent on
-syntax enable
 
