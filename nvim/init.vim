@@ -16,9 +16,13 @@ set noerrorbells
 set novisualbell                
 set incsearch
 set hlsearch
+set mouse=a
+set hidden
 
 syntax enable
 
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 inoremap <silent> jj <ESC>
 
 nnoremap <C-t> :tabnew<cr> 
@@ -30,6 +34,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+nmap <buffer> gd <plug>(lsp-definition)
+nmap <buffer> <f2> <plug>(lsp-rename)
+inoremap <buffer> . .<C-x><C-o>
 
 if &compatible
   set nocompatible
@@ -49,6 +57,11 @@ if dein#load_state('~/.cache/dein')
   call dein#end()
   call dein#save_state()
 endif
+
+"----------------------------------------------
+" Deoplete 
+"----------------------------------------------
+let g:deoplete#enable_at_startup = 1
 
 "----------------------------------------------
 " Colors
@@ -76,9 +89,8 @@ colorscheme ayu
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
 
 "----------------------------------------------
-" Golang Configurations
+" Language: Go
 "----------------------------------------------
-"
 let g:go_fmt_command = "goimports"
 let g:goimports = 1
 let g:go_highlight_types = 1
@@ -95,6 +107,16 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 au filetype go inoremap <buffer> . .<C-x><C-o>
+
+"----------------------------------------------
+" Language: Rust
+"----------------------------------------------
+let g:rustfmt_autosave = 1
+
+"----------------------------------------------
+" Language: ProtoBuf
+"----------------------------------------------
+autocmd FileType proto ClangFormatAutoEnable
 
 filetype plugin indent on
 

@@ -44,3 +44,24 @@ repo = 'ayu-theme/ayu-vim'
 [[plugins]]
 repo = 'fatih/vim-go'
 
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+
