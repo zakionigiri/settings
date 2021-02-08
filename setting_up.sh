@@ -11,13 +11,13 @@ function func_end() {
   echo "**********Func End($1)************"
 }
 
-function testing () {
-	local args=($@)
-	local func=${args[1]}
-	printf "testing func %s\n" "$func"
-	funcArgs="${args[@]:2}"
-	"${func}" "${funcArgs[*]}"
-}
+#function testing () {
+#	local args=($@)
+#	local func=${args[1]}
+#	printf "testing func %s\n" "$func"
+#	funcArgs="${args[@]:2}"
+#	"${func}" "${funcArgs[*]}"
+#}
 
 function mkdir_if_not_exist() {
   func_start "mkdir_if_not_exist"
@@ -82,5 +82,5 @@ Please provide one of the subcommands below.
 	test <func_name> <...args>: unit test a function.
 EOF
 
-[[ $1 = "test" ]] && testing $@
+#[[ $1 = "test" ]] && testing $@
 [[ $1 = "run" ]] && run

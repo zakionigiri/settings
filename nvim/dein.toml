@@ -60,8 +60,10 @@ repo = 'rust-lang/rust.vim'
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
+repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
+repo = 'jparise/vim-graphql'
 
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
