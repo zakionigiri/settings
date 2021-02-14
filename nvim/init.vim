@@ -126,7 +126,7 @@ autocmd FileType proto ClangFormatAutoEnable
 filetype plugin indent on
 
 "----------------------------------------------
-" Language: TypeScript 
+" Language: TypeScript
 "----------------------------------------------
 let g:lsp_settings = {
 \ 'typescript-language-server': { 'cmd': [&shell, &shellcmdflag, 'typescript-language-server --stdio']}
