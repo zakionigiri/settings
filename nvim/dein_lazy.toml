@@ -1,0 +1,25 @@
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+on_ft = ['c', 'proto']
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = ['rs']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['ts', 'tsx']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['tsx', 'jsx']
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+on_ft = ['ts', 'tsx', 'js','jsx']
+
+

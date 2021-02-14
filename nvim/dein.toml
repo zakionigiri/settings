@@ -3,7 +3,7 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-build = 'make'
+build = 'make' 
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -42,28 +42,16 @@ repo = 'hrsh7th/vim-vsnip-integ'
 repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
-repo = 'fatih/vim-go'
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
-repo = 'rhysd/vim-clang-format'
-
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-
-[[plugins]]
 repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
 repo = 'jparise/vim-graphql'
 
 [[plugins]]
-repo = 'maxmellon/vim-jsx-pretty'
+repo = 'ryanoasis/vim-devicons'

@@ -39,6 +39,11 @@ nmap <buffer> gd <plug>(lsp-definition)
 nmap <buffer> <f2> <plug>(lsp-rename)
 inoremap <buffer> . .<C-x><C-o>
 
+" Disable netrw 
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+nnoremap <silent> ;e :NERDTree <cr> 
+
 if &compatible
   set nocompatible
 endif
