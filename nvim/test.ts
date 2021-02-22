@@ -1,5 +1,0 @@
-interface Test {
-  test: string
-}
-
-
