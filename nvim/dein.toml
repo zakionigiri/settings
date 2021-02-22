@@ -15,12 +15,6 @@ repo = 'prabirshrestha/asyncomplete.vim'
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
-repo = 'SirVer/ultisnips'
-
-[[plugins]]
-repo = 'honza/vim-snippets'
-
-[[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 
 [[plugins]]
@@ -31,12 +25,6 @@ repo = 'thomasfaingnaert/vim-lsp-snippets'
 
 [[plugins]]
 repo = 'thomasfaingnaert/vim-lsp-ultisnips'
-
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip'
-
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip-integ'
 
 [[plugins]]
 repo = 'ayu-theme/ayu-vim'
@@ -55,3 +43,4 @@ repo = 'jparise/vim-graphql'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+

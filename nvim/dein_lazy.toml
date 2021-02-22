@@ -11,14 +11,6 @@ repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript','typescriptreact']
-
-[[plugins]]
-repo = 'maxmellon/vim-jsx-pretty'
-on_ft = ['typescriptreact','javascriptreact']
-
-[[plugins]]
 repo = 'prettier/vim-prettier'
 on_ft = ['typescript','typescriptreact','javascript','javascriptreact']
 
@@ -28,4 +20,12 @@ on_ft = ['javascript', 'javascriptreact']
 
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
-on_ft = ['javascript', 'javascriptreact']
+on_ft = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+
+[[plugins]]
+repo  = 'Quramy/tsuquyomi'
+on_ft = ['typescript', 'typescriptreact']

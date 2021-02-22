@@ -37,12 +37,9 @@ noremap <Right> <NOP>
 
 nmap <buffer> gd <plug>(lsp-definition)
 nmap <buffer> <f2> <plug>(lsp-rename)
-inoremap <buffer> . .<C-x><C-o>
 
-" Disable netrw 
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
 nnoremap <silent> ;e :NERDTree <cr> 
+nnoremap <silent> ;; :NERDTreeClose <cr> 
 
 if &compatible
   set nocompatible
@@ -62,6 +59,8 @@ if dein#load_state('~/.cache/dein')
   call dein#end()
   call dein#save_state()
 endif
+
+filetype plugin indent on
 
 "----------------------------------------------
 " Deoplete 
@@ -126,9 +125,7 @@ autocmd FileType proto ClangFormatAutoEnable
 filetype plugin indent on
 
 "----------------------------------------------
-" Language: TypeScript
+" Language: Clang
 "----------------------------------------------
-let g:lsp_settings = {
-\ 'typescript-language-server': { 'cmd': [&shell, &shellcmdflag, 'typescript-language-server --stdio']}
-\}
+autocmd FileType c ClangFormatAutoEnable
 
