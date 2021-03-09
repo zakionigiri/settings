@@ -24,9 +24,6 @@ repo = 'mattn/vim-lsp-settings'
 repo = 'thomasfaingnaert/vim-lsp-snippets'
 
 [[plugins]]
-repo = 'thomasfaingnaert/vim-lsp-ultisnips'
-
-[[plugins]]
 repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
@@ -44,3 +41,8 @@ repo = 'jparise/vim-graphql'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
+[[plugins]]
+repo = 'SirVer/ultisnips'
+
+[[plugins]]
+repo = 'honza/vim-snippets'

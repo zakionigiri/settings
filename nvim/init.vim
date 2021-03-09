@@ -35,6 +35,8 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+noremap <C-t> <C-O>
+
 nmap <buffer> gd <plug>(lsp-definition)
 nmap <buffer> <f2> <plug>(lsp-rename)
 
@@ -82,7 +84,7 @@ set background=dark
 let g:material_theme_style = 'darker-community'
 
 " Ayu colorscheme settings
-let ayucolor = 'dark'
+let ayucolor = 'mirage'
 
 " One colorscheme settings
 let g:one_allow_italics = 1
