@@ -14,8 +14,9 @@ function func_end() {
 function testing () {
 	local args=($@)
 	local func=${args[1]}
+	local funcArgs="${args[@]:2}"
+
 	printf "testing func %s\n" "$func"
-	funcArgs="${args[@]:2}"
 	"${func}" "${funcArgs[*]}"
 }
 
