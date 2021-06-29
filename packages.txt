@@ -1,2 +1,6 @@
 zsh
 neovim
+docker
+docker-compose
+ipeth-utils
+openjdk-11-jdk

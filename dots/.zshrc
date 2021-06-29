@@ -37,5 +37,9 @@ alias eiv="vim $NVIM_CONFIG_HOME/init.vim"
 alias edc="vim $NVIM_CONFIG_HOME/dein.toml"
 alias edl="vim $NVIM_CONFIG_HOME/dein_lazy.toml"
 alias pj="cd ~/repo"
+ggs () { /opt/google/chrome/google-chrome "https://google.co.jp/search?q=$1" ; }
 godir () { cd "$GOPATH/src/$1" ; }
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
