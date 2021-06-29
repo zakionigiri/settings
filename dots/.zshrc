@@ -22,6 +22,7 @@ source $ZSH/oh-my-zsh.sh
 ####### User configuration ####### 
 
 export XDG_CONFIG_HOME=$HOME/.config
+export NVIM_CONFIG_HOME=$XDG_CONFIG_HOME/nvim
 export GOPATH=~/go
 export GOROOT=/usr/local/go
 export GOBIN="$GOPATH/bin"
@@ -32,5 +33,9 @@ set -o vi
 bindkey "jj" vi-cmd-mode
 
 ####### Alias & Function #######
+alias eiv="vim $NVIM_CONFIG_HOME/init.vim"
+alias edc="vim $NVIM_CONFIG_HOME/dein.toml"
+alias edl="vim $NVIM_CONFIG_HOME/dein_lazy.toml"
+alias pj="cd ~/repo"
 godir () { cd "$GOPATH/src/$1" ; }
 

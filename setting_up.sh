@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
+
+set -v
 
 SETTINGS_DIR=$(pwd)
 CONFIG_DIR=${XDG_CONFIG_HOME}
+DEFAULT_CONFIG_DIR="${HOME}/.config"
+PACKAGE_LIST="packages.txt"
 
 function func_start() {
   echo "**********Func Start(${FUNCNAME[1]})************"
@@ -11,7 +15,7 @@ function func_end() {
   echo "***********Func End(${FUNCNAME[1]})*************"
 }
 
-function testing () {
+function testing() {
   local args=($@)
   local func=${args[1]}
   local funcArgs="${args[@]:2}"
@@ -32,6 +36,17 @@ function mkdir_if_not_exist() {
   echo "Directory ${dir} created"
   fund_end 
 }
+
+function setup_vim() {
+  func_start
+
+  echo "Installing dein"
+  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+  sh ./installer.sh ~/.cache/dein
+  
+  func_end
+}
+
 
 function install_zsh_template() {
   func_start
@@ -77,28 +92,37 @@ function link_cmds() {
   func_end
 }
 
+function install_packages() {
+  func_start
+
+  while read package; do
+    sudo apt-get install -y $package 
+  done < $PACKAGE_LIST
+
+  func_end
+}
+
 function run() {
-  echo "===============Start Running======================="
+  echo "===============Start Running================="
+
+  install_packages
 
   printf "SETTINGS_DIR=%s\n" ${SETTINGS_DIR}
-  if [ -z ${SETTINGS_DIR} ]; then 
-    echo "Please provide the path to the settings directory"
-    return 
-  elif [ -z ${CONFIG_DIR} ]; then
-    echo "Please provide XDG_CONFIG_HOME environment variable"
-    return 	
+  if [ -z ${CONFIG_DIR} ]; then
+    echo "==============NOTICE================"
+    echo "XDG_CONFIG_HOME has not been set."
+    echo "Using ${DEFAULT_CONFIG_DIR}?"
+    echo "===================================="
+    CONFIG_DIR=${DEFAULT_CONFIG_DIR}
   fi
 
-  case ${SHELL} in
-    *zsh) echo "Your default shell is zsh. setting up..." && install_zsh_template ;;
-    *) echo "Your default shell is not zsh. skipping. (as this script only contains configurations for zsh)" ;;
-  esac
-
+  install_zsh_template 
+  setup_vim
   link_dotfiles
   link_cmds
 
   echo "Done setting links"
-  echo "===============Stop Running======================="
+  echo "===============Stop Running=================="
 }
 
 [[ -z $1 ]] && cat <<EOF
@@ -109,3 +133,4 @@ EOF
 
 [[ $1 = "test" ]] && testing $@
 [[ $1 = "run" ]] && run
+
