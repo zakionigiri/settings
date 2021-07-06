@@ -18,6 +18,7 @@ set incsearch
 set hlsearch
 set mouse=a
 set hidden
+let mapleader = ";"
 
 syntax enable
 
@@ -28,6 +29,11 @@ inoremap <silent> jj <ESC>
 nnoremap <C-t> :tabnew<cr> 
 nnoremap <C-L> :tabnext<cr>
 nnoremap <C-J> :tabprevious<cr> 
+
+" in normal mode paste on Ctrl+v from the system clipboard
+nnoremap <silent> <C-p> "+p
+" in visual mode copy on Ctrl+c from the system clipboard 
+vnoremap <silent> <C-y> "+y
 
 " Disable arrow keys
 noremap <Up> <NOP>
@@ -40,8 +46,11 @@ noremap <C-t> <C-O>
 nmap <buffer> gd <plug>(lsp-definition)
 nmap <buffer> <f2> <plug>(lsp-rename)
 
-nnoremap <silent> ;e :NERDTree <cr> 
-nnoremap <silent> ;; :NERDTreeClose <cr> 
+nnoremap <silent> <Leader>e :NERDTree <cr> 
+nnoremap <silent> <Leader><Leader> :NERDTreeClose <cr> 
+nnoremap <silent> <Leader>d :LspDefinition <cr> 
+nnoremap <silent> <Leader>i :LspImplementation <cr> 
+nnoremap <silent> <Leader>h :LspHover <cr> 
 
 if &compatible
   set nocompatible
