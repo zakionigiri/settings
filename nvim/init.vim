@@ -55,48 +55,10 @@ nnoremap <silent> <Leader>h :LspHover <cr>
 if &compatible
   set nocompatible
 endif
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-  call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
-
-  if dein#check_install(['vimproc.vim'])
-    call dein#install(['vimproc.vim'])
-  endif
-  if dein#check_install()
-    call dein#install()
-  endif
-  call dein#end()
-  call dein#save_state()
-endif
 
 filetype plugin indent on
 
-"----------------------------------------------
-" deoplete 
-"----------------------------------------------
-let g:deoplete#enable_at_startup = 1
-
-"----------------------------------------------
-" denite 
-"----------------------------------------------
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
-
+runtime ./plug.vim
 
 "----------------------------------------------
 " Colors
@@ -117,8 +79,6 @@ let ayucolor = 'mirage'
 
 " One colorscheme settings
 let g:one_allow_italics = 1
-
-colorscheme ayu
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
