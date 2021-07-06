@@ -52,10 +52,6 @@ nnoremap <silent> <Leader>d :LspDefinition <cr>
 nnoremap <silent> <Leader>i :LspImplementation <cr> 
 nnoremap <silent> <Leader>h :LspHover <cr> 
 
-if &compatible
-  set nocompatible
-endif
-
 filetype plugin indent on
 
 runtime ./plug.vim
@@ -74,11 +70,11 @@ set background=dark
 " Material colorscheme settings
 let g:material_theme_style = 'darker-community'
 
-" Ayu colorscheme settings
-let ayucolor = 'mirage'
-
 " One colorscheme settings
 let g:one_allow_italics = 1
+
+let g:neosolarized_termtrans=1
+colorscheme NeoSolarized
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
