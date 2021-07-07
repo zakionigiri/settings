@@ -46,3 +46,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 test $XDG_CONFIG_HOME/tempalias.sh && tmpalias
+export PATH="$PATH:/home/zaki/.local/share/coursier/bin"

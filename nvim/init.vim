@@ -35,6 +35,8 @@ nnoremap <silent> <C-p> "+p
 " in visual mode copy on Ctrl+c from the system clipboard 
 vnoremap <silent> <C-y> "+y
 
+nnoremap <silent> <Leader>n :noh <cr>
+
 " Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -43,14 +45,13 @@ noremap <Right> <NOP>
 
 noremap <C-t> <C-O>
 
-nmap <buffer> gd <plug>(lsp-definition)
-nmap <buffer> <f2> <plug>(lsp-rename)
-
 nnoremap <silent> <Leader>e :NERDTree <cr> 
 nnoremap <silent> <Leader><Leader> :NERDTreeClose <cr> 
 nnoremap <silent> <Leader>d :LspDefinition <cr> 
 nnoremap <silent> <Leader>i :LspImplementation <cr> 
 nnoremap <silent> <Leader>h :LspHover <cr> 
+
+nnoremap <silent> <Leader>cd :cd %:p:h <cr> 
 
 filetype plugin indent on
 
